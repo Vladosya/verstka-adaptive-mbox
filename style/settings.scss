@@ -1,0 +1,57 @@
+body {
+   background-color: #000000;
+}
+
+.page {
+   width: 100%;
+   max-width: 1224px;
+   margin: 0 auto;
+}
+
+.page-white-black {
+   background-color: #101012;
+}
+
+@mixin breakpoint($point) {
+   @if $point == xxxl {
+      @media (max-width: 1441px) {
+         @content;
+      }
+   }
+
+   @if $point == xxl {
+      @media (max-width: 1400px) {
+         @content;
+      }
+   }
+
+   @if $point == xl {
+      @media (max-width: 1200px) {
+         @content;
+      }
+   }
+
+   @if $point == lg {
+      @media (max-width: 992px) {
+         @content;
+      }
+   }
+
+   @if $point == md {
+      @media (max-width: 768px) {
+         @content;
+      }
+   }
+
+   @if $point == sm {
+      @media (max-width: 576px) {
+         @content;
+      }
+   }
+
+   @if $point == xs {
+      @media (max-width: 320px) {
+         @content;
+      }
+   }
+}

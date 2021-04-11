@@ -1,0 +1,1481 @@
+@import "./zeroing.scss";
+@import "./settings.scss";
+
+.container {
+   width: 100%;
+   max-width: 1441px;
+   margin: 0 auto;
+
+   @include breakpoint(xxxl) {
+      max-width: 1341px;
+   }
+
+   @include breakpoint(xxl) {
+      max-width: 1221px;
+   }
+
+   @include breakpoint(xl) {
+      max-width: 941px;
+   }
+
+   @include breakpoint(lg) {
+      max-width: 741px;
+   }
+
+   @include breakpoint(md) {
+      max-width: 641px;
+   }
+
+   @include breakpoint(sm) {
+      min-width: 341px;
+   }
+
+   @include breakpoint(xs) {
+      min-width: 241px;
+   }
+}
+
+.header {
+   padding: 15px 0;
+
+   &__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include breakpoint(xl) {
+         justify-content: start;
+      }
+   }
+
+   &__logo {
+      display: flex;
+      align-items: center;
+
+      img {
+         margin-left: 15px;
+      }
+
+      p {
+         margin-left: 14px;
+         font-family: Poppins;
+         font-weight: 500;
+         font-size: 40px;
+         line-height: 0px;
+         color: #ffffff;
+
+         @include breakpoint(sm) {
+            display: none;
+         }
+      }
+   }
+
+   &__nav {
+      @include breakpoint(xl) {
+         display: none;
+      }
+      ul {
+         display: flex;
+
+         li {
+            a {
+               margin-right: 27px;
+               margin-left: 27px;
+               font-family: Mulish;
+               font-weight: 700;
+               font-size: 16px;
+               color: #ffffff;
+               opacity: 0.5;
+               text-decoration: none;
+
+               @include breakpoint(xl) {
+                  margin-right: 20px;
+                  margin-left: 20px;
+                  font-size: 14px;
+               }
+            }
+         }
+      }
+   }
+
+   &__basket {
+      display: flex;
+
+      @include breakpoint(xl) {
+         margin-left: 400px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 250px;
+      }
+
+      @include breakpoint(md) {
+         margin-left: 150px;
+      }
+
+      @include breakpoint(sm) {
+         margin-left: 60px;
+      }
+
+      @include breakpoint(xs) {
+         display: none;
+      }
+
+      a {
+         display: block;
+         margin-right: 37.5px;
+         margin-left: 37.5px;
+
+         @include breakpoint(sm) {
+            margin-right: 20px;
+            margin-left: 20px;
+         }
+      }
+   }
+}
+
+.burger {
+   display: none;
+
+   @include breakpoint(xl) {
+      display: block;
+   }
+}
+
+.nav-bar {
+   position: absolute;
+   background-color: #111110;
+   top: 0;
+   right: 100%;
+   height: 100vh;
+   width: 250px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: position 2.9s;
+   -webkit-transition: position 2.9s;
+   -moz-transition: position 2.9s;
+   -ms-transition: position 2.9s;
+   -o-transition: position 2.9s;
+   z-index: 2;
+
+   @include breakpoint(sm) {
+      width: 100%;
+   }
+}
+
+.toggle {
+   left: 0;
+   box-shadow: 1px 0 15px 2px rgba(0, 0, 0, 0.4);
+
+   &-menu {
+      position: fixed;
+      top: 24px;
+      right: 50px;
+      width: 40px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 2px 2px 2px 3px;
+      border-radius: 5px;
+      cursor: pointer;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+
+      @include breakpoint(md) {
+         right: 65px;
+      }
+
+      @include breakpoint(sm) {
+         top: 25px;
+         right: 25px;
+         width: 35px;
+         height: 27px;
+      }
+   }
+}
+
+.line {
+   width: 100%;
+   height: 3px;
+   border-radius: 5px;
+   background-color: #ffffff;
+   transition: transform 0.2s ease-out;
+   -webkit-transition: transform 0.2s ease-out;
+   -moz-transition: transform 0.2s ease-out;
+   -ms-transition: transform 0.2s ease-out;
+   -o-transition: transform 0.2s ease-out;
+
+   .toggle1 {
+      background-color: #000000;
+      transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
+   }
+
+   .toggle2 {
+      display: none;
+   }
+
+   .toggle3 {
+      background-color: #000000;
+      transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+   }
+}
+
+.toggle .toggle-menu {
+   background-color: white;
+   @include breakpoint(xl) {
+      background-color: rgba(43, 41, 41, 0.404);
+   }
+}
+
+.nav-list {
+   list-style: none;
+
+   &-item {
+      text-align: center;
+      padding: 10px 0;
+
+      @include breakpoint(xl) {
+         padding: 30px 0;
+      }
+   }
+}
+
+.nav-link {
+   color: #ffffff;
+   font-size: 22px;
+   text-decoration: none;
+   position: relative;
+   padding-bottom: 4px;
+
+   &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #fff;
+      transform: scaleX(0);
+      transition: transform 0.4s ease-in-out;
+      transform-origin: left;
+      -webkit-transition: transform 0.4s ease-in-out;
+      -moz-transition: transform 0.4s ease-in-out;
+      -ms-transition: transform 0.4s ease-in-out;
+      -o-transition: transform 0.4s ease-in-out;
+
+      &:hover::before {
+         transform: scaleX(1);
+      }
+   }
+}
+
+.main-block {
+   padding: 122px 0 203px 0;
+   background: url(../img/background-image.png) right/auto auto no-repeat;
+
+   @include breakpoint(xxl) {
+      background: url(../img/actor/background-two.png) right/auto auto no-repeat;
+   }
+
+   @include breakpoint(xl) {
+      padding: 102px 0 163px 0;
+      background: url(../img/actor/background-three.png) right/auto auto
+         no-repeat;
+   }
+
+   @include breakpoint(lg) {
+      padding: 35px 0 123px 0;
+      background: url(../img/actor/background-four.png) right/718px auto
+         no-repeat;
+   }
+
+   @include breakpoint(md) {
+      padding: 25px 0 103px 0;
+      background: url(../img/actor/background-five.png) right/auto auto
+         no-repeat;
+   }
+
+   @include breakpoint(sm) {
+      padding: 15px 0 83px 0;
+      margin-left: 15px;
+      background: url(../img/actor/background-six.png) auto/auto center
+         no-repeat;
+   }
+
+   @include breakpoint(xs) {
+      padding: 12px 0 40px 0;
+      margin-left: 15px;
+      background: url(../img/actor/background-seven.png) auto/auto no-repeat;
+   }
+
+   &__title {
+      font-family: Marcellus;
+      font-weight: 400;
+      font-size: 80px;
+      color: #ffffff;
+
+      @include breakpoint(xl) {
+         font-size: 60px;
+      }
+
+      @include breakpoint(lg) {
+         font-size: 50px;
+      }
+
+      @include breakpoint(md) {
+         font-size: 40px;
+      }
+
+      @include breakpoint(sm) {
+         font-size: 32px;
+      }
+   }
+
+   &__text {
+      margin-top: 25px;
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      color: #c2c2c2;
+
+      @include breakpoint(xl) {
+         margin-top: 20px;
+         font-size: 15px;
+         line-height: 27px;
+      }
+
+      @include breakpoint(lg) {
+         margin-top: 16px;
+         font-size: 12px;
+         line-height: 24px;
+      }
+
+      @include breakpoint(md) {
+         margin-top: 12px;
+         font-size: 11px;
+         line-height: 24px;
+      }
+
+      @include breakpoint(sm) {
+         margin-top: 10px;
+         font-size: 9px;
+         line-height: 21px;
+      }
+   }
+
+   &__buttons {
+      display: flex;
+      margin-top: 35px;
+
+      @include breakpoint(xl) {
+         margin-top: 28px;
+      }
+
+      @include breakpoint(lg) {
+         margin-top: 20px;
+      }
+
+      @include breakpoint(sm) {
+         margin-top: 15px;
+      }
+   }
+
+   &__btn-one {
+      display: flex;
+      min-width: 141px;
+      min-height: 50px;
+      background: linear-gradient(316.53deg, #26fff2 13.2%, #326cff 71.54%);
+      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+      border-radius: 100px;
+
+      @include breakpoint(xl) {
+         min-width: 131px;
+         min-height: 40px;
+      }
+
+      @include breakpoint(lg) {
+         min-width: 131px;
+         min-height: 45px;
+         font-size: 12px;
+      }
+
+      @include breakpoint(md) {
+         min-width: 111px;
+         min-height: 25px;
+         font-size: 10px;
+      }
+
+      @include breakpoint(sm) {
+         min-width: 100px;
+         min-height: 25px;
+         font-size: 8px;
+      }
+
+      img {
+         margin: 15px 0 0 30px;
+
+         @include breakpoint(xl) {
+            margin: 15px 0 0 22px;
+         }
+
+         @include breakpoint(md) {
+            margin: 16px 0 0 18px;
+         }
+
+         @include breakpoint(sm) {
+            margin: 16px 0 0 21px;
+         }
+      }
+
+      p {
+         margin: 15px 0 0 15px;
+         font-family: Mulish;
+         font-weight: 800;
+         font-size: 16px;
+         color: #ffffff;
+
+         @include breakpoint(lg) {
+            margin: 17px 0 0 18px;
+            font-size: 13px;
+         }
+
+         @include breakpoint(xl) {
+            margin: 18px 0 0 18px;
+            font-size: 12px;
+         }
+
+         @include breakpoint(sm) {
+            margin: 18px 0 0 13px;
+            font-size: 10px;
+         }
+      }
+   }
+
+   &__btn-two {
+      margin-left: 30px;
+      min-width: 195px;
+      min-height: 50px;
+      background: #ffffff;
+      border-radius: 100px;
+      font-family: Mulish;
+      font-weight: 800;
+      font-size: 16px;
+      color: #323232;
+
+      @include breakpoint(xl) {
+         margin-left: 25px;
+         min-width: 185px;
+         font-size: 15px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 20px;
+         min-width: 175px;
+         font-size: 13px;
+      }
+
+      @include breakpoint(md) {
+         margin-left: 15px;
+         min-width: 165px;
+         font-size: 12px;
+      }
+
+      @include breakpoint(sm) {
+         margin-left: 12px;
+         min-width: 150px;
+         font-size: 10px;
+      }
+   }
+}
+
+.movie-information {
+   display: flex;
+   align-items: center;
+   margin-top: 32px;
+
+   @include breakpoint(xl) {
+      margin-top: 26px;
+   }
+
+   @include breakpoint(lg) {
+      margin-top: 27px;
+   }
+
+   @include breakpoint(md) {
+      margin-top: 20px;
+   }
+
+   &__year {
+      font-family: Mulish;
+      font-weight: 800;
+      font-size: 16px;
+      color: #ffffff;
+
+      @include breakpoint(xl) {
+         font-size: 14px;
+      }
+
+      @include breakpoint(lg) {
+         font-size: 12px;
+      }
+
+      @include breakpoint(md) {
+         font-size: 10px;
+      }
+   }
+
+   &__old {
+      margin-left: 18.16px;
+
+      @include breakpoint(xl) {
+         margin-left: 15.16px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 15px;
+      }
+
+      @include breakpoint(md) {
+         margin-left: 10px;
+      }
+   }
+
+   &__duration {
+      margin-left: 18.25px;
+      font-family: Mulish;
+      font-weight: 800;
+      font-size: 16px;
+      color: #ffffff;
+
+      @include breakpoint(xl) {
+         font-size: 14px;
+         margin-left: 15.16px;
+      }
+
+      @include breakpoint(lg) {
+         font-size: 12px;
+         margin-left: 13px;
+      }
+
+      @include breakpoint(lg) {
+         font-size: 10px;
+         margin-left: 10px;
+      }
+   }
+
+   &__stars {
+      display: flex;
+      margin-left: 41.33px;
+
+      @include breakpoint(xl) {
+         margin-left: 35.33px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 30px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 25px;
+      }
+
+      p {
+         margin-right: 15px;
+         font-family: Mulish;
+         font-weight: 800;
+         font-size: 16px;
+         color: #ffffff;
+
+         @include breakpoint(lg) {
+            font-size: 14px;
+         }
+
+         @include breakpoint(lg) {
+            font-size: 12px;
+         }
+      }
+   }
+}
+
+.movies-block-one {
+   margin-top: 60px;
+
+   @include breakpoint(xl) {
+      flex-wrap: wrap;
+      margin-top: 50px;
+   }
+
+   @include breakpoint(lg) {
+      margin-top: 40px;
+   }
+
+   @include breakpoint(ms) {
+      margin-top: 30px;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 25px;
+   }
+
+   &__header {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(lg) {
+         margin-left: 8px;
+         font-size: 18px;
+      }
+
+      @include breakpoint(sm) {
+         margin-left: 15px;
+      }
+
+      p {
+         margin-left: 11px;
+         font-family: Mulish;
+         font-weight: bold;
+         font-size: 28px;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            margin-left: 9px;
+            font-size: 24px;
+         }
+
+         @include breakpoint(lg) {
+            margin-left: 8px;
+            font-size: 18px;
+         }
+
+         @include breakpoint(md) {
+            margin-left: 6px;
+            font-size: 14px;
+         }
+      }
+   }
+
+   &__one-img {
+      @include breakpoint(sm) {
+         display: none;
+      }
+   }
+
+   &__items {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-around;
+
+      @include breakpoint(xl) {
+         margin-top: 40px;
+         flex-wrap: wrap;
+      }
+
+      @include breakpoint(lg) {
+         justify-content: space-between;
+      }
+
+      @include breakpoint(md) {
+         flex-wrap: wrap;
+         justify-content: flex-end;
+      }
+
+      @include breakpoint(sm) {
+         margin-top: 25px;
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+
+      div {
+         @include breakpoint(md) {
+            flex-basis: 45%;
+         }
+
+         @include breakpoint(sm) {
+            flex-basis: 51%;
+         }
+
+         img {
+            border-radius: 22px;
+
+            @include breakpoint(xl) {
+               margin-top: 10px;
+            }
+
+            @include breakpoint(md) {
+               margin-top: 7px;
+            }
+         }
+      }
+   }
+
+   &__btn {
+      margin-top: 55px;
+      padding: 15px 0 0 34px;
+      width: 141px;
+      height: 50px;
+      background: linear-gradient(316.53deg, #26fff2 13.2%, #326cff 71.54%);
+      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+      border-radius: 100px;
+      font-family: Mulish;
+      font-weight: 800;
+      font-size: 16px;
+      color: #ffffff;
+
+      @include breakpoint(xl) {
+         margin-top: 45px;
+         padding: 15px 0 0 33px;
+         width: 131px;
+         height: 46px;
+         font-size: 14px;
+      }
+
+      @include breakpoint(sm) {
+         margin-left: 15px;
+         width: 120px;
+         height: 43px;
+         font-size: 12px;
+      }
+   }
+}
+
+.category-block {
+   margin-top: 100px;
+
+   @include breakpoint(xl) {
+      margin-top: 80px;
+   }
+
+   @include breakpoint(lg) {
+      margin-top: 70px;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 45px;
+   }
+
+   &__header {
+      display: flex;
+      align-items: center;
+
+      p {
+         margin-left: 11px;
+         font-family: Mulish;
+         font-weight: bold;
+         font-size: 28px;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            margin-left: 9px;
+            font-size: 24px;
+         }
+
+         @include breakpoint(lg) {
+            margin-left: 8px;
+            font-size: 18px;
+         }
+      }
+   }
+
+   &__wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 40px;
+
+      @include breakpoint(xl) {
+         justify-content: space-around;
+      }
+
+      @include breakpoint(lg) {
+         margin-top: 30px;
+      }
+   }
+
+   &__one {
+      min-width: 340px;
+      min-height: 198px;
+      border: none;
+      background: none;
+      margin-bottom: 27px;
+
+      @include breakpoint(lg) {
+         margin-bottom: 22px;
+      }
+
+      @include breakpoint(md) {
+         min-width: 300px;
+         min-height: 178px;
+      }
+
+      @include breakpoint(xs) {
+         min-width: 260px;
+         min-height: 138px;
+      }
+
+      div {
+         img {
+            margin-top: 55.73px;
+         }
+
+         p {
+            margin-top: 8px;
+            font-family: Mulish;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 28px;
+            text-align: center;
+            color: #ffffff;
+            padding-bottom: 45px;
+
+            @include breakpoint(xl) {
+               font-size: 25px;
+            }
+
+            @include breakpoint(lg) {
+               font-size: 22px;
+            }
+
+            @include breakpoint(xs) {
+               margin-top: 6px;
+               font-size: 19px;
+            }
+         }
+      }
+   }
+
+   &__image {
+      @include breakpoint(sm) {
+         display: none;
+      }
+   }
+
+   &__btn {
+      display: none;
+
+      @include breakpoint(sm) {
+         display: block;
+         margin-left: 15px;
+         margin-top: 35px;
+         padding: 16px 0 0 50px;
+         width: 141px;
+         height: 50px;
+         background: linear-gradient(316.53deg, #26fff2 13.2%, #326cff 71.54%);
+         box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+         border-radius: 100px;
+         font-family: Mulish;
+         font-weight: 800;
+         font-size: 16px;
+         color: #ffffff;
+      }
+
+      @include breakpoint(xs) {
+         padding: 15px 0 0 45px;
+         width: 120px;
+         height: 43px;
+         font-size: 12px;
+      }
+   }
+
+   &__img-one {
+      background: linear-gradient(109.31deg, #fd093f 2.4%, #f383f1 100%);
+      border-radius: 20px;
+   }
+
+   &__img-two {
+      background: linear-gradient(114.5deg, #0fffda 2.22%, #3cdb77 68.84%);
+      border-radius: 20px;
+   }
+
+   &__img-three {
+      background: linear-gradient(109.31deg, #b936ff 2.4%, #57deda 100%);
+      border-radius: 20px;
+   }
+
+   &__img-four {
+      background: linear-gradient(
+         109.31deg,
+         #fd093f 2.4%,
+         #fb1378 2.41%,
+         #fccb1a 100%
+      );
+      border-radius: 20px;
+   }
+
+   &__img-five {
+      background: linear-gradient(109.31deg, #ff6472 2.4%, #fda75d 100%);
+      border-radius: 20px;
+   }
+   &__img-six {
+      background: linear-gradient(110.16deg, #13547a 2.37%, #80d0c7 96.77%);
+      border-radius: 20px;
+   }
+   &__img-seven {
+      background: linear-gradient(109.93deg, #fff77b 2.37%, #ffbf42 50%);
+      border-radius: 20px;
+   }
+   &__img-eight {
+      background: linear-gradient(
+         109.31deg,
+         #1fa2ff 2.4%,
+         #1fa2ff 2.41%,
+         #1f535c 97.46%
+      );
+      border-radius: 20px;
+   }
+}
+
+.actor-block {
+   margin-top: 70px;
+
+   @include breakpoint(xl) {
+      margin-top: 60px;
+   }
+
+   @include breakpoint(md) {
+      margin-top: 50px;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 40px;
+   }
+
+   &__header {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(sm) {
+         margin-left: 15px;
+      }
+
+      p {
+         margin-left: 11px;
+         font-family: Mulish;
+         font-weight: bold;
+         font-size: 28px;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            margin-left: 9px;
+            font-size: 24px;
+         }
+
+         @include breakpoint(lg) {
+            margin-left: 8px;
+            font-size: 18px;
+         }
+
+         @include breakpoint(md) {
+            margin-left: 8px;
+            font-size: 18px;
+         }
+      }
+   }
+
+   &__wrap {
+      display: flex;
+      justify-content: space-between;
+
+      @include breakpoint(xl) {
+         flex-wrap: wrap;
+         justify-content: space-around;
+      }
+
+      @include breakpoint(md) {
+         justify-content: space-between;
+      }
+
+      @include breakpoint(md) {
+         text-align: center;
+      }
+   }
+
+   &__one {
+      max-width: 190px;
+      max-height: 250px;
+      margin-top: 37.65px;
+
+      @include breakpoint(md) {
+         margin-top: 30px;
+         max-width: none;
+         max-height: 230px;
+         flex-wrap: wrap;
+         flex-basis: 50%;
+      }
+
+      @include breakpoint(sm) {
+         margin-top: 20px;
+         flex-basis: 100%;
+      }
+
+      button {
+         border: none;
+         background: none;
+      }
+
+      p {
+         margin-top: 20px;
+         font-family: Mulish;
+         font-weight: bold;
+         font-size: 18px;
+         color: #ffffff;
+         text-align: center;
+
+         @include breakpoint(xl) {
+            margin-top: 17px;
+            font-size: 16px;
+         }
+
+         @include breakpoint(lg) {
+            margin-top: 14px;
+            font-size: 14px;
+         }
+      }
+   }
+
+   &__img-one {
+      @include breakpoint(sm) {
+         display: none;
+      }
+   }
+
+   &__btn {
+      display: none;
+
+      @include breakpoint(sm) {
+         display: block;
+         margin-left: 15px;
+         margin-top: 35px;
+         padding: 16px 0 0 50px;
+         width: 141px;
+         height: 50px;
+         background: linear-gradient(316.53deg, #26fff2 13.2%, #326cff 71.54%);
+         box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+         border-radius: 100px;
+         font-family: Mulish;
+         font-weight: 800;
+         font-size: 16px;
+         color: #ffffff;
+      }
+   }
+}
+
+.news-block {
+   display: flex;
+   margin-top: 97px;
+   background: linear-gradient(87.02deg, #0d1a73 29.67%, #000000 70.52%);
+   box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.1);
+   border-radius: 20px;
+
+   @include breakpoint(xl) {
+      display: block;
+   }
+
+   @include breakpoint(md) {
+      margin-top: 75px;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 55px;
+   }
+
+   &__left {
+      @include breakpoint(xl) {
+         display: none;
+      }
+   }
+
+   &__right {
+      margin: 0 auto;
+      margin-top: 71px;
+
+      @include breakpoint(xl) {
+         display: flex;
+         align-items: center;
+         justify-content: space-around;
+         margin-top: 0px;
+         padding: 30px 0;
+
+         @include breakpoint(md) {
+            padding: 20px 0;
+            text-align: center;
+         }
+
+         @include breakpoint(sm) {
+            display: flex;
+            flex-direction: column;
+         }
+      }
+
+      img {
+         margin-left: 80px;
+
+         @include breakpoint(xl) {
+            margin-left: 0;
+         }
+      }
+
+      p {
+         margin-top: 31px;
+         font-family: Mulish;
+         font-weight: bold;
+         font-size: 64px;
+         text-transform: capitalize;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            font-size: 54px;
+            margin-top: 0;
+         }
+
+         @include breakpoint(md) {
+            font-size: 40px;
+         }
+
+         @include breakpoint(sm) {
+            margin-top: 10px;
+            font-size: 30px;
+         }
+      }
+   }
+}
+
+.register-block {
+   margin-top: 121px;
+   padding: 71px 0;
+   background: url("../img/photo-areYouNewHere.png") 0 0 / auto auto no-repeat;
+
+   @include breakpoint(xl) {
+      display: flex;
+      justify-content: center;
+      margin-top: 90px;
+      padding: 51px 0;
+   }
+
+   @include breakpoint(md) {
+      margin-top: 80px;
+      padding: 41px 0;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 60px;
+      padding: 31px 0;
+   }
+
+   &__wrap {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint(sm) {
+         flex-direction: column;
+      }
+
+      p {
+         margin-left: 57px;
+         font-family: Mulish;
+         font-weight: 700;
+         font-size: 64px;
+         line-height: 100%;
+         text-transform: capitalize;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            margin-left: 0;
+            font-size: 44px;
+         }
+
+         @include breakpoint(md) {
+            font-size: 30px;
+         }
+
+         @include breakpoint(sm) {
+            font-size: 25px;
+         }
+      }
+
+      button {
+         margin-left: 82px;
+         min-width: 140px;
+         min-height: 50px;
+         background: linear-gradient(316.53deg, #26fff2 13.2%, #326cff 71.54%);
+         box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.5);
+         border-radius: 100px;
+         font-family: Mulish;
+         font-weight: 800;
+         font-size: 16px;
+         line-height: 20px;
+         color: #ffffff;
+
+         @include breakpoint(xl) {
+            font-size: 14px;
+         }
+
+         @include breakpoint(xl) {
+            margin-left: 70px;
+            min-width: 120px;
+            min-height: 40px;
+            font-size: 11px;
+         }
+
+         @include breakpoint(sm) {
+            margin-top: 10px;
+            margin-left: 0;
+         }
+      }
+   }
+}
+
+.page {
+   @include breakpoint(xl) {
+      max-width: 941px;
+   }
+}
+
+.footer-block {
+   display: flex;
+   justify-content: center;
+   align-items: end;
+   margin-top: 121px;
+   padding: 70px 0;
+   background: #101012;
+
+   @include breakpoint(xl) {
+      margin-top: 110px;
+      padding: 50px 0;
+   }
+
+   @include breakpoint(lg) {
+      margin-top: 80px;
+      padding: 35px 0;
+   }
+
+   @include breakpoint(md) {
+      margin-top: 70px;
+      padding: 25px 0;
+   }
+
+   @include breakpoint(sm) {
+      margin-top: 50px;
+      padding: 15px 0;
+   }
+}
+
+.footer-logo {
+   display: flex;
+   align-items: center;
+
+   @include breakpoint(xl) {
+      margin-left: 35px;
+   }
+
+   @include breakpoint(xs) {
+      margin-left: 15px;
+   }
+
+   p {
+      margin-left: 14px;
+      font-family: Poppins;
+      font-weight: 500;
+      font-size: 40px;
+      color: #ffffff;
+
+      @include breakpoint(xl) {
+         margin-left: 12px;
+         font-size: 35px;
+      }
+
+      @include breakpoint(lg) {
+         margin-left: 10px;
+         font-size: 30px;
+      }
+
+      @include breakpoint(md) {
+         margin-left: 8px;
+         font-size: 27px;
+      }
+
+      @include breakpoint(sm) {
+         display: none;
+      }
+   }
+}
+
+.footer-items-one {
+   margin-left: 84px;
+
+   @include breakpoint(xl) {
+      margin-left: 64px;
+   }
+
+   @include breakpoint(md) {
+      margin-left: 44px;
+   }
+
+   @include breakpoint(sm) {
+      display: none;
+   }
+
+   ul {
+      li {
+         a {
+            font-family: Mulish;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 35px;
+            color: #c2c2c2;
+
+            @include breakpoint(xl) {
+               font-size: 16px;
+               line-height: 30px;
+            }
+
+            @include breakpoint(lg) {
+               font-size: 14px;
+               line-height: 26px;
+            }
+
+            @include breakpoint(md) {
+               font-size: 11px;
+               line-height: 24px;
+            }
+         }
+      }
+   }
+}
+
+.footer-items-two {
+   margin-left: 52px;
+
+   @include breakpoint(xl) {
+      margin-left: 32px;
+   }
+
+   @include breakpoint(md) {
+      margin-left: 25px;
+   }
+
+   @include breakpoint(sm) {
+      margin-left: 20px;
+   }
+
+   ul {
+      li {
+         a {
+            font-family: Mulish;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 35px;
+            color: #c2c2c2;
+
+            @include breakpoint(xl) {
+               font-size: 16px;
+               line-height: 30px;
+            }
+
+            @include breakpoint(lg) {
+               font-size: 14px;
+               line-height: 26px;
+            }
+
+            @include breakpoint(md) {
+               font-size: 11px;
+               line-height: 24px;
+            }
+         }
+      }
+   }
+}
+
+.footer-items-three {
+   margin-left: 52px;
+
+   @include breakpoint(xl) {
+      margin-left: 32px;
+   }
+
+   @include breakpoint(md) {
+      margin-left: 25px;
+   }
+
+   @include breakpoint(sm) {
+      margin-left: 20px;
+   }
+
+   ul {
+      li {
+         a {
+            font-family: Mulish;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 35px;
+            color: #c2c2c2;
+
+            @include breakpoint(xl) {
+               font-size: 16px;
+               line-height: 30px;
+            }
+
+            @include breakpoint(lg) {
+               font-size: 14px;
+               line-height: 26px;
+            }
+
+            @include breakpoint(md) {
+               font-size: 11px;
+               line-height: 24px;
+            }
+         }
+      }
+   }
+}
+
+.footer-items-four {
+   margin-left: 52px;
+
+   @include breakpoint(xl) {
+      margin-left: 32px;
+   }
+
+   @include breakpoint(md) {
+      margin-left: 32px;
+   }
+
+   @include breakpoint(sm) {
+      margin-left: 20px;
+   }
+
+   @include breakpoint(xs) {
+      display: none;
+   }
+
+   ul {
+      li {
+         a {
+            font-family: Mulish;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 35px;
+            color: #c2c2c2;
+
+            @include breakpoint(xl) {
+               font-size: 16px;
+               line-height: 30px;
+            }
+
+            @include breakpoint(lg) {
+               font-size: 14px;
+               line-height: 26px;
+            }
+
+            @include breakpoint(md) {
+               font-size: 11px;
+               line-height: 24px;
+            }
+         }
+      }
+   }
+}
